@@ -1,8 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import TopNavBar from "./Containers/Navbar/TopNavBar";
-import MainPage from "./Containers/MainPage/MainPage";
-import Footer from "./Containers/Footer/Footer";
+import TopNavBar from "./Compoenets/Navbar/TopNavBar";
+import Footer from "./Compoenets/Footer/Footer";
+import DrawLotto from "./Compoenets/DrawLotto/DrawLotto";
+import MainPageContainer from "./Containers/MainPage/MainPageContainer";
 
 const App: React.FC = () => {
   return (
@@ -12,7 +13,10 @@ const App: React.FC = () => {
           <TopNavBar />
           <Switch>
             <Route exact path="/">
-              <MainPage />
+              <MainPageContainer />
+            </Route>
+            <Route path="/drawlotto">
+              <DrawLotto />
             </Route>
           </Switch>
         </div>
