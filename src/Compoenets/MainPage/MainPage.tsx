@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from "react";
-import Lotto from "../../utills/Lotto";
-
+import React from "react";
 interface Iprops {
   allDrawNum: any;
   lastDrawNum: string;
+  countAllInning?: [];
 }
 
-const MainPage: React.FC<Iprops> = ({ allDrawNum, lastDrawNum }) => {
+const MainPage: React.FC<Iprops> = ({
+  allDrawNum,
+  lastDrawNum,
+  countAllInning
+}) => {
+  console.log(countAllInning);
   return (
     <>
       <div>

@@ -39,8 +39,6 @@ class Lotto {
 
   //TODO:이 함수는 1개 이상 6개 이하의 인자를 받아 가장 높은 등수별로 솔팅하여 등수 및 번호정보를 arr에 담아 리턴하는 함수
   static getWinnerFromAllDraw(...balls) {
-    let result = {};
-    let temp = [];
     let drwt = balls.slice().sort((a, b) => a - b);
     console.log(drwt);
   }

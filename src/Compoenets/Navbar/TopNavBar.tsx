@@ -23,7 +23,7 @@ const TopNavBar: React.FC = () => {
             </Link>
           </Nav.Link>
           <Nav.Link>
-            <Link className="nav-link" to="/">
+            <Link className="nav-link" to="/ballChance">
               번호별 확률
             </Link>
           </Nav.Link>

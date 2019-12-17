@@ -4,6 +4,7 @@ import TopNavBar from "./Compoenets/Navbar/TopNavBar";
 import Footer from "./Compoenets/Footer/Footer";
 import DrawLotto from "./Compoenets/DrawLotto/DrawLotto";
 import MainPageContainer from "./Containers/MainPage/MainPageContainer";
+import BallChance from "./Compoenets/BallChance/BallChance";
 
 const App: React.FC = () => {
   return (
@@ -17,6 +18,9 @@ const App: React.FC = () => {
             </Route>
             <Route path="/drawlotto">
               <DrawLotto />
+            </Route>
+            <Route path="/ballChance">
+              <BallChance />
             </Route>
           </Switch>
         </div>
