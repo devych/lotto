@@ -1,31 +1,71 @@
 import React from "react";
-interface Iprops {
-  allDrawNum: any;
-  lastDrawNum: string;
-  countAllInning?: [];
-}
+import { Card, Button, Dropdown } from "react-bootstrap";
+import BallBox from "../BallBox/BallBox";
 
-const MainPage: React.FC<Iprops> = ({
-  allDrawNum,
-  lastDrawNum,
-  countAllInning
-}) => {
-  console.log(countAllInning);
+const fakeData = [
+  "889회",
+  "888회",
+  "887회",
+  "886회",
+  "885회",
+  "889회",
+  "888회",
+  "887회",
+  "886회",
+  "885회",
+  "889회",
+  "888회",
+  "887회",
+  "886회",
+  "885회",
+  "889회",
+  "888회",
+  "887회",
+  "886회",
+  "885회",
+  "889회",
+  "888회",
+  "887회",
+  "886회",
+  "885회",
+  "889회",
+  "888회",
+  "887회",
+  "886회",
+  "885회"
+];
+
+const MainPage: React.FC = () => {
   return (
     <>
-      <div>
-        <h3>{lastDrawNum}회차 당첨 번호</h3>
-        <div>
-          {Object.keys(allDrawNum).length !== 0 &&
-            allDrawNum[lastDrawNum].map((num: any, index: number) => {
-              return index === 6 ? (
-                <span> Bonus + {num} </span>
-              ) : (
-                <span> {num} </span>
-              );
-            })}
-        </div>
-      </div>
+      <Card className="text-center">
+        <Card.Header>
+          <Dropdown>
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
+              지난 당첨 번호
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu
+              style={{
+                overflowY: "scroll",
+                height: "300px"
+              }}
+            >
+              {fakeData.map(item => (
+                <Dropdown.Item href="#/action-1">{item}</Dropdown.Item>
+              ))}
+            </Dropdown.Menu>
+          </Dropdown>
+        </Card.Header>
+        <Card.Body>
+          <Card.Title>889회차 로또 당첨 번호</Card.Title>
+
+          <Card.Text>
+            <BallBox balls={[1, 12, 20, 34, 40, 44, 45]} />
+          </Card.Text>
+          <Button variant="primary">Get Details</Button>
+        </Card.Body>
+      </Card>
     </>
   );
 };
