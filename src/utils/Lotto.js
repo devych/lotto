@@ -7,6 +7,20 @@ class Lotto {
   constructor(lastNum) {
     this.lastNum = lastNum;
   }
+
+  static createLottoBalls(...balls) {
+    let retBalls = [...balls];
+
+    let len = 7;
+    while (retBalls.length < len) {
+      let ball = Math.floor(Math.random() * 46);
+      if (retBalls.indexOf(ball) < 0 && ball > 0) {
+        retBalls.push(ball);
+      }
+    }
+    retBalls.sort((a, b) => a - b);
+    return retBalls;
+  }
   static getLastDrawNum() {
     let keys = Object.keys(lottoArrayData);
     let len = keys.length;
