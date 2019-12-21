@@ -9,8 +9,8 @@ const BallBox: React.FC<IProps> = ({ balls }) => {
   return (
     <>
       {balls &&
-        balls?.map((ball: number, key: number) => (
-          <Ball ball={ball} key={key} />
+        balls?.map((ball: number, index: number) => (
+          <Ball ball={ball} key={index} id={index} />
         ))}
     </>
   );

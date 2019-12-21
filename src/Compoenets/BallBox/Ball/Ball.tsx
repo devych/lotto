@@ -3,13 +3,21 @@ import styles from "styled-components";
 
 interface IProps {
   ball?: number;
-  key: number;
+  key?: number;
+  id?: number;
 }
 
-const Ball: React.FC<IProps> = ({ ball, key }) => {
+const Ball: React.FC<IProps> = ({ ball, id }) => {
   return (
     <>
-      <BallStyle key={key}>{ball}</BallStyle>
+      {id !== 6 ? (
+        <BallStyle>{ball}</BallStyle>
+      ) : (
+        <>
+          <BonusStyle> + </BonusStyle>
+          <BallStyle>{ball}</BallStyle>
+        </>
+      )}
     </>
   );
 };
@@ -44,6 +52,15 @@ text-shadow: 0px 0px 3px rgba(73, 57, 0, .8);
 margin: 10px 10px ;
 cursor: pointer; 
 transition:all ease 0.5s 0s;
+`;
+
+const BonusStyle = styles.span`
+display: inline-block;
+font-weight: 2rm;
+font-size: 28px;
+width: 60px;
+height: 60px;
+margin: 10px 10px ;
 `;
 
 export default Ball;

@@ -17,7 +17,12 @@ const DrawLotto = () => {
   return (
     <>
       <Card className="text-center">
-        <Card.Header>로또 번호 생성</Card.Header>
+        <Card.Header>
+          <Button variant="success" onClick={handleCreate}>
+            번호 생성
+          </Button>
+        </Card.Header>
+
         <Card.Body>
           {balls && balls.length === 0 ? (
             <Card.Title>로또 번호 생성 버튼을 클릭해주세요</Card.Title>
@@ -28,9 +33,6 @@ const DrawLotto = () => {
           <Card.Text>
             {balls.length === 0 ? `` : <BallBox balls={balls} />}
           </Card.Text>
-          <Button variant="success" onClick={handleCreate}>
-            번호 생성
-          </Button>
         </Card.Body>
         {balls.length === 0 ? (
           ``

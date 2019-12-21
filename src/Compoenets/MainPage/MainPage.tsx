@@ -2,38 +2,7 @@ import React from "react";
 import { Card, Button, Dropdown } from "react-bootstrap";
 import BallBox from "../BallBox/BallBox";
 
-const fakeData = [
-  "889회",
-  "888회",
-  "887회",
-  "886회",
-  "885회",
-  "889회",
-  "888회",
-  "887회",
-  "886회",
-  "885회",
-  "889회",
-  "888회",
-  "887회",
-  "886회",
-  "885회",
-  "889회",
-  "888회",
-  "887회",
-  "886회",
-  "885회",
-  "889회",
-  "888회",
-  "887회",
-  "886회",
-  "885회",
-  "889회",
-  "888회",
-  "887회",
-  "886회",
-  "885회"
-];
+const fakeData = ["889회", "888회", "887회", "886회", "885회"];
 
 const MainPage: React.FC = () => {
   return (
@@ -48,11 +17,13 @@ const MainPage: React.FC = () => {
             <Dropdown.Menu
               style={{
                 overflowY: "scroll",
-                height: "300px"
+                maxHeight: "300px"
               }}
             >
-              {fakeData.map(item => (
-                <Dropdown.Item href="#/action-1">{item}</Dropdown.Item>
+              {fakeData.map((item, key) => (
+                <Dropdown.Item href="#/action-1" key={key}>
+                  {item}
+                </Dropdown.Item>
               ))}
             </Dropdown.Menu>
           </Dropdown>
