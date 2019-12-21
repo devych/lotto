@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 const TopNavBar: React.FC = () => {
+  const [toggle, setToggle] = useState<boolean>(false);
+
+  const handleToggle = (expanded: boolean) => {
+    setToggle(expanded);
+  };
+  const closeToggle = () => {
+    setToggle(false);
+  };
+
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" expand="md" expanded={toggle} onToggle={handleToggle}>
       <Navbar.Brand>
         <Link className="navbar-brand mb-0 h1" to="/">
           TToloTTo
@@ -11,7 +20,7 @@ const TopNavBar: React.FC = () => {
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="navbarNav" />
       <Navbar.Collapse id="navbarNav">
-        <Nav className="mr-auto">
+        <Nav className="mr-auto" onClick={closeToggle}>
           <Nav.Link>
             <Link className="nav-link" to="/">
               로또 당첨 정보
@@ -19,7 +28,7 @@ const TopNavBar: React.FC = () => {
           </Nav.Link>
           <Nav.Link>
             <Link className="nav-link" to="/drawlotto">
-              로또 번호 생성 > 드롭다운 구성 후 무작위 추출 또는 확률상
+              로또 번호 생성
             </Link>
           </Nav.Link>
           <Nav.Link>
@@ -28,8 +37,8 @@ const TopNavBar: React.FC = () => {
             </Link>
           </Nav.Link>
           <Nav.Link>
-            <Link className="nav-link" to="/">
-              Shop
+            <Link className="nav-link" to="/simulator">
+              로또 시뮬레이션
             </Link>
           </Nav.Link>
         </Nav>
