@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import Lotto from "../../utils/Lotto";
-import BallBox from "../BallBox/BallBox";
-import { Card, Button } from "react-bootstrap";
+import React, { useState } from 'react';
+import Lotto from '../../utils/Lotto';
+import BallBox from '../BallBox/BallBox';
+import { Card, Button } from 'react-bootstrap';
 
 type Balls = number[];
 const DrawLotto = () => {
@@ -29,17 +29,13 @@ const DrawLotto = () => {
           ) : (
             ``
           )}
-
-          <Card.Text>
-            {balls.length === 0 ? `` : <BallBox balls={balls} />}
-          </Card.Text>
+          <Card.Text>{balls.length === 0 ? `` : <BallBox balls={balls} />}</Card.Text>
+          {balls[0]} {balls[1]} {balls[2]} {balls[3]} {balls[4]} {balls[5]}
         </Card.Body>
         {balls.length === 0 ? (
           ``
         ) : (
-          <Card.Footer className="text-muted">
-            로또 번호가 {count}번 생성되었습니다.
-          </Card.Footer>
+          <Card.Footer className="text-muted">로또 번호가 {count}번 생성되었습니다.</Card.Footer>
         )}
       </Card>
     </>

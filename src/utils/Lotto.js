@@ -26,7 +26,7 @@ class Lotto {
     let retBalls = Lotto.createBall(6, ...balls);
     retBalls.sort((a, b) => a - b);
     //create bonus balls
-    retBalls = Lotto.createBall(7, ...retBalls);
+    // retBalls = Lotto.createBall(7, ...retBalls);
     return retBalls;
   }
 
@@ -50,7 +50,7 @@ class Lotto {
         drwtNo3,
         drwtNo4,
         drwtNo5,
-        drwtNo6
+        drwtNo6,
         // bnusNo
       } = data[i];
       countBall(result, drwtNo1, drwtNo2, drwtNo3, drwtNo4, drwtNo5, drwtNo6);
@@ -65,10 +65,10 @@ class Lotto {
       return keys.map(item => [
         item,
         obj[item],
-        Number(((obj[item] / totalLottoNum) * 100).toFixed(4))
+        Number(((obj[item] / totalLottoNum) * 100).toFixed(4)),
       ]);
     };
-    const ret = indescenndingItems(resultKeys, result, 889);
+    const ret = indescenndingItems(resultKeys, result, 892);
     return ret;
   }
 

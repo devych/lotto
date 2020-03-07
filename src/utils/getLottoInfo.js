@@ -1,9 +1,9 @@
-const fs = require("fs");
-const axios = require("axios");
-const lottoData = require("../lottoData/data.json");
-const lottoArrayData = require("../lottoData/dataArray.json");
+const fs = require('fs');
+const axios = require('axios');
+const lottoData = require('../lottoData/data.json');
+const lottoArrayData = require('../lottoData/dataArray.json');
 
-const url = "http://www.nlotto.co.kr/common.do?method=getLottoNumber&drwNo=";
+const url = 'http://www.nlotto.co.kr/common.do?method=getLottoNumber&drwNo=';
 
 //필요한 데이터 형식
 /*
@@ -50,10 +50,7 @@ const getAllLottoNumber = async (pastData, pastArrayData) => {
   let simpleData = pastArrayData || {};
 
   while (isNewInfo === true) {
-    if (
-      !newData.lotto[drwNo - 1] ||
-      newData.lotto[drwNo - 1].returnValue === "fail"
-    ) {
+    if (!newData.lotto[drwNo - 1] || newData.lotto[drwNo - 1].returnValue === 'fail') {
       const lottoInfo = await axios.get(`${url}${drwNo}`);
       newLottoData = JSON.parse(JSON.stringify(lottoInfo.data));
       newData.lotto.push(lottoInfo.data);
@@ -68,21 +65,21 @@ const getAllLottoNumber = async (pastData, pastArrayData) => {
         newData.lotto[drwNo - 1].drwtNo4,
         newData.lotto[drwNo - 1].drwtNo5,
         newData.lotto[drwNo - 1].drwtNo6,
-        newData.lotto[drwNo - 1].bnusNo
+        newData.lotto[drwNo - 1].bnusNo,
       ];
     }
 
     drwNo++;
 
-    if (newLottoData.returnValue === "fail") {
-      console.log("모든 정보를 가져왔습니다.");
+    if (newLottoData.returnValue === 'fail') {
+      console.log('모든 정보를 가져왔습니다.');
       isNewInfo = false;
     }
   }
 
   console.log(`${drwNo - 1}회차 정보를 삭제합니다.`);
   //newData = array
-  if (newData.lotto[newData.lotto.length - 1].returnValue === "fail") {
+  if (newData.lotto[newData.lotto.length - 1].returnValue === 'fail') {
     newData.lotto.pop();
   }
   //simpleData = object
@@ -90,28 +87,20 @@ const getAllLottoNumber = async (pastData, pastArrayData) => {
 
   newData = JSON.stringify(newData);
   simpleData = JSON.stringify(simpleData);
-  fs.writeFile(
-    "/Users/devych/Code/forHappyCoding/lifeLotto/client-lotto/src/lottoData/data.json",
-    newData,
-    err => {
-      if (err) {
-        console.log(err);
-        throw err;
-      }
-      console.log("파일이 json 형식으로 저장되었습니다.");
+  fs.writeFile('/Users/devych/Code/lotto/src/lottoData/data.json', newData, err => {
+    if (err) {
+      console.log(err);
+      throw err;
     }
-  );
-  fs.writeFile(
-    "/Users/devych/Code/forHappyCoding/lifeLotto/client-lotto/src/lottoData/dataArray.json",
-    simpleData,
-    err => {
-      if (err) {
-        console.log(err);
-        throw err;
-      }
-      console.log("파일이 array 형식으로 저장되었습니다.");
+    console.log('파일이 json 형식으로 저장되었습니다.');
+  });
+  fs.writeFile('/Users/devych/Code/lotto/src/lottoData/dataArray.json', simpleData, err => {
+    if (err) {
+      console.log(err);
+      throw err;
     }
-  );
+    console.log('파일이 array 형식으로 저장되었습니다.');
+  });
 };
 
 getAllLottoNumber(lottoData, lottoArrayData);
