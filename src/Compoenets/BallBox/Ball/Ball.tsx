@@ -2,41 +2,41 @@ import React from "react";
 import styles from "styled-components";
 
 interface IProps {
-  ball?: number;
-  key?: number;
-  id?: number;
+    ball?: number;
+    key?: number;
+    id?: number;
 }
 
 const Ball: React.FC<IProps> = ({ ball, id }) => {
-  return (
-    <>
-      {id !== 6 ? (
-        <BallStyle>{ball}</BallStyle>
-      ) : (
+    return (
         <>
-          <BonusStyle> + </BonusStyle>
-          <BallStyle>{ball}</BallStyle>
+            {id !== 6 ? (
+                <BallStyle>{ball}</BallStyle>
+            ) : (
+                <>
+                    <BonusStyle> + </BonusStyle>
+                    <BallStyle>{ball}</BallStyle>
+                </>
+            )}
         </>
-      )}
-    </>
-  );
+    );
 };
 
 const BallStyle = styles.span<IProps>`
 ${props => {
-  if (props.children) {
-    if (props.children <= 10) {
-      return `background:#fbc400;`;
-    } else if (props.children > 10 && props.children < 21) {
-      return `background:#69c8f2;`;
-    } else if (props.children > 20 && props.children < 31) {
-      return `background:#ff7272;`;
-    } else if (props.children > 30 && props.children < 41) {
-      return `background:#aaa;`;
-    } else if (props.children > 40 && props.children <= 45) {
-      return `background:#b0d840;`;
+    if (props.children) {
+        if (props.children <= 10) {
+            return `background:#fbc400;`;
+        } else if (props.children > 10 && props.children < 21) {
+            return `background:#69c8f2;`;
+        } else if (props.children > 20 && props.children < 31) {
+            return `background:#ff7272;`;
+        } else if (props.children > 30 && props.children < 41) {
+            return `background:#aaa;`;
+        } else if (props.children > 40 && props.children <= 45) {
+            return `background:#b0d840;`;
+        }
     }
-  }
 }}
 display: inline-block;
 border-radius: 100%;
