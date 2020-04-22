@@ -1,9 +1,13 @@
-import React from "react";
-import { Card, Button, Container, Row, Col } from "react-bootstrap";
+import React, { useState } from "react";
+import { Card, Button } from "react-bootstrap";
 import SimulatorControlButtons from "./SimulatorControlButtons/SimulatorControlButtons";
 import SimulatorInputBox from "./SimulatorInputBox/SimulatorInputBox";
 
+type Balls = number[] | [];
+
 const Simulator = () => {
+    const [balls, setBalls] = useState<Balls>([]);
+
     return (
         <>
             <Card className="text-center">
@@ -15,9 +19,8 @@ const Simulator = () => {
                         <SimulatorInputBox />
                     </Card.Title>
                     <Card.Text></Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
                 </Card.Body>
-                <Card.Footer className="text-muted">2 days ago</Card.Footer>
+                <Card.Footer className="text-muted">즐기세요</Card.Footer>
             </Card>
         </>
     );

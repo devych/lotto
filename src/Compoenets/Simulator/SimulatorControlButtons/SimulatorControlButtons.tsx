@@ -12,6 +12,21 @@ const SimulatorControlButtons = () => {
                             id="dropdown-basic"
                             size="sm"
                         >
+                            로또 회차 선택
+                        </Dropdown.Toggle>
+
+                        <Dropdown.Menu>
+                            <Dropdown.Item href="#/action-1">907</Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
+                </Col>
+                <Col xs lg="auto">
+                    <Dropdown style={{ margin: "2px" }}>
+                        <Dropdown.Toggle
+                            variant="info"
+                            id="dropdown-basic"
+                            size="sm"
+                        >
                             시뮬레이션 횟수: 기본 100
                         </Dropdown.Toggle>
 
@@ -32,6 +47,8 @@ const SimulatorControlButtons = () => {
                         </Dropdown.Menu>
                     </Dropdown>
                 </Col>
+            </Row>
+            <Row className="justify-content-md-center">
                 <Col xs lg="auto">
                     <Button variant="success"> 시작</Button>
                 </Col>

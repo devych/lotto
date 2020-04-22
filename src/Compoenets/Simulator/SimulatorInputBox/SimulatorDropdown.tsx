@@ -2,14 +2,14 @@ import React from "react";
 import { Dropdown } from "react-bootstrap";
 
 interface IProps {
-    buttonNum: number;
+    buttonNum: string;
 }
 
 const SimulatorDropdown: React.FC<IProps> = ({ buttonNum }) => {
     return (
         <Dropdown style={{ margin: "2px" }}>
             <Dropdown.Toggle variant="info" id="dropdown-basic" size="sm">
-                {buttonNum}번 번호
+                {buttonNum} 번호 선택
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
