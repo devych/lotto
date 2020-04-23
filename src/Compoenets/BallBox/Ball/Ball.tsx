@@ -23,7 +23,7 @@ const Ball: React.FC<IProps> = ({ ball, id }) => {
 };
 
 const BallStyle = styles.span<IProps>`
-${props => {
+${(props) => {
     if (props.children) {
         if (props.children <= 10) {
             return `background:#fbc400;`;
@@ -44,10 +44,10 @@ text-align: center;
 vertical-align: middle;
 color: #fff;
 font-weight: 1rm;
-width: 60px;
-height: 60px;
-line-height: 56px;
-font-size: 28px;
+width: 30px;
+height: 30px;
+line-height: 30px;
+font-size: 14px;
 text-shadow: 0px 0px 3px rgba(73, 57, 0, .8);
 margin: 10px 10px ;
 cursor: pointer; 
@@ -57,9 +57,9 @@ transition:all ease 0.5s 0s;
 const BonusStyle = styles.span`
 display: inline-block;
 font-weight: 2rm;
-font-size: 28px;
-width: 60px;
-height: 60px;
+font-size: 14px;
+width: 30px;
+height: 30px;
 margin: 10px 10px ;
 `;
 
