@@ -19,7 +19,7 @@ const BallChance = () => {
 
     return (
         <>
-            <Card className="text-center">
+            <Card className="text-center" border={"secondary"}>
                 <Card.Header>보너스 번호를 제외한 번호별 출현 확률</Card.Header>
                 <Card.Body>
                     <Card.Text>
@@ -38,14 +38,14 @@ const BallChance = () => {
                                         <tr>
                                             <td
                                                 style={{
-                                                    color: "grey"
+                                                    color: "grey",
                                                 }}
                                             >
                                                 {index + 1}
                                             </td>
                                             <td
                                                 style={{
-                                                    fontWeight: "bolder"
+                                                    fontWeight: "bolder",
                                                 }}
                                             >
                                                 {item[0]}

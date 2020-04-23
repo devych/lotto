@@ -16,7 +16,7 @@ const DrawLotto = () => {
 
     return (
         <>
-            <Card className="text-center">
+            <Card className="text-center" border={"secondary"}>
                 <Card.Header>
                     <Button variant="success" onClick={handleCreate}>
                         번호 생성

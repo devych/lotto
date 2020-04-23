@@ -7,7 +7,7 @@ const fakeData = ["889회", "888회", "887회", "886회", "885회"];
 const MainPage: React.FC = () => {
     return (
         <>
-            <Card className="text-center">
+            <Card className="text-center" border={"secondary"}>
                 <Card.Header>
                     <Dropdown>
                         <Dropdown.Toggle variant="success" id="dropdown-basic">
@@ -17,7 +17,7 @@ const MainPage: React.FC = () => {
                         <Dropdown.Menu
                             style={{
                                 overflowY: "scroll",
-                                maxHeight: "300px"
+                                maxHeight: "300px",
                             }}
                         >
                             {fakeData.map((item, key) => (
