@@ -29,7 +29,6 @@ const SimulatorControlButtons = () => {
                         >
                             시뮬레이션 횟수: 기본 100
                         </Dropdown.Toggle>
-
                         <Dropdown.Menu>
                             <Dropdown.Item href="#/action-1">100</Dropdown.Item>
                             <Dropdown.Item href="#/action-2">
@@ -48,6 +47,7 @@ const SimulatorControlButtons = () => {
                     </Dropdown>
                 </Col>
             </Row>
+            <br />
             <Row className="justify-content-md-center">
                 <Col xs lg="auto">
                     <Button variant="success"> 시작</Button>
