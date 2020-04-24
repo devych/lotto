@@ -10,9 +10,7 @@ const TopNavBar: React.FC = () => {
     const closeToggle = () => {
         setToggle(false);
     };
-    let date = new Date();
 
-    console.log(date);
     return (
         <>
             <Navbar

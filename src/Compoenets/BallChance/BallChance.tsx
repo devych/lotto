@@ -23,7 +23,7 @@ const BallChance = () => {
                 <Card.Header>보너스 번호를 제외한 번호별 출현 확률</Card.Header>
                 <Card.Body>
                     <Card.Text>
-                        <Table striped bordered hover responsive size="md">
+                        <Table striped bordered hover responsive="xl">
                             <thead>
                                 <tr>
                                     <th>#</th>

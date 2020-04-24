@@ -49,7 +49,7 @@ height: 30px;
 line-height: 30px;
 font-size: 14px;
 text-shadow: 0px 0px 3px rgba(73, 57, 0, .8);
-margin: 10px 10px ;
+margin: 5px 5px ;
 cursor: pointer; 
 transition:all ease 0.5s 0s;
 `;
@@ -60,7 +60,7 @@ font-weight: 2rm;
 font-size: 14px;
 width: 30px;
 height: 30px;
-margin: 10px 10px ;
+margin: 5px 5px ;
 `;
 
 export default Ball;
