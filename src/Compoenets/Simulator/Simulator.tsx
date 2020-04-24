@@ -24,26 +24,56 @@ const Simulator = () => {
                 >
                     <Container>
                         <Row>
-                            <Col sm={8}>907회차 당첨 번호</Col>
-                            <Col sm={4}>보너스 번호</Col>
-                        </Row>
-                        <Row>
-                            <Col sm={8}>
-                                <BallBox balls={[1, 9, 15, 28, 30, 44]} />
+                            <Col sm={9}>
+                                <Row>
+                                    <Col>907회차 당첨 번호</Col>
+                                </Row>
+                                <Row>
+                                    <Col>
+                                        <BallBox
+                                            balls={[1, 9, 15, 28, 30, 44]}
+                                        />
+                                    </Col>
+                                </Row>
                             </Col>
-                            <Col sm={4}>
-                                <BallBox balls={[32]} />
+                            <Col sm={3}>
+                                <Row>
+                                    <Col>보너스 번호</Col>
+                                </Row>
+                                <Row>
+                                    <Col>
+                                        <BallBox balls={[32]} />
+                                    </Col>
+                                </Row>
                             </Col>
                         </Row>
                     </Container>
                 </Card.Body>
                 <Card.Body>
-                    <Table striped bordered hover>
+                    <Table
+                        striped
+                        bordered
+                        hover
+                        responsive="xl"
+                        style={{ fontSize: "13px" }}
+                    >
                         <thead>
                             <tr>
-                                <th>등수</th>
-                                <th>당첨수</th>
-                                <th>당첨확률</th>
+                                <th>
+                                    등수
+                                    <br />
+                                    (당첨수)
+                                </th>
+                                <th>
+                                    당첨
+                                    <br />
+                                    확률
+                                </th>
+                                <th>
+                                    최근 당첨번호
+                                    <br />
+                                    5개
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
