@@ -29,26 +29,18 @@ const TopNavBar: React.FC = () => {
                 <Navbar.Collapse id="navbarNav">
                     <Nav className="mr-auto" onClick={closeToggle}></Nav>
                     <Nav onClick={closeToggle}>
-                        <Nav.Link>
-                            <Link className="nav-link" to="/">
-                                로또 당첨 정보
-                            </Link>
-                        </Nav.Link>
-                        <Nav.Link>
-                            <Link className="nav-link" to="/drawlotto">
-                                로또 번호 생성
-                            </Link>
-                        </Nav.Link>
-                        <Nav.Link>
-                            <Link className="nav-link" to="/ballChance">
-                                번호별 확률
-                            </Link>
-                        </Nav.Link>
-                        <Nav.Link>
-                            <Link className="nav-link" to="/simulator">
-                                로또 시뮬레이션
-                            </Link>
-                        </Nav.Link>
+                        <Link className="nav-link" to="/">
+                            로또 당첨 정보
+                        </Link>
+                        <Link className="nav-link" to="/drawlotto">
+                            로또 번호 생성
+                        </Link>
+                        <Link className="nav-link" to="/ballChance">
+                            번호별 확률
+                        </Link>
+                        <Link className="nav-link" to="/simulator">
+                            로또 시뮬레이션
+                        </Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
