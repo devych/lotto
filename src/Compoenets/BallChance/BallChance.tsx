@@ -18,7 +18,11 @@ const BallChance = ({ rank, isBnus, handleBnus }: IProps) => {
                         <>보너스 번호 포함한 통계를 보시겠어요?</>
                     )}
 
-                    <Button variant="outline-dark" onClick={handleBnus}>
+                    <Button
+                        variant="outline-dark"
+                        onClick={handleBnus}
+                        style={{ margin: "0 30px" }}
+                    >
                         버튼을 눌러주세요
                     </Button>
                 </Card.Header>
