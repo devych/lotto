@@ -1,26 +1,27 @@
-import React, { useState, useEffect } from "react";
-import { Table, Card } from "react-bootstrap";
-import fakeData from "../../lottoData/data.json";
-import Lotto from "../../utils/Lotto.js";
+import React from "react";
+import { Table, Card, Button } from "react-bootstrap";
 
-type BallChance = [string, number, number][];
+interface IProps {
+    rank: Array<number>[] | null;
+    isBnus: boolean;
+    handleBnus: () => void;
+}
 
-const BallChance = () => {
-    const [ballChance, setBallChance] = useState<BallChance>([]);
-
-    useEffect(() => {
-        getBallChance();
-    }, []);
-
-    const getBallChance = () => {
-        const data = Lotto.getAverageBallChance(fakeData);
-        setBallChance([...data]);
-    };
-
+const BallChance = ({ rank, isBnus, handleBnus }: IProps) => {
     return (
         <>
             <Card className="text-center" border={"secondary"}>
-                <Card.Header>보너스 번호를 제외한 번호별 출현 확률</Card.Header>
+                <Card.Header>
+                    {isBnus ? (
+                        <>보너스 번호 제외한 통계를 보시겠어요?</>
+                    ) : (
+                        <>보너스 번호 포함한 통계를 보시겠어요?</>
+                    )}
+
+                    <Button variant="outline-dark" onClick={handleBnus}>
+                        버튼을 눌러주세요
+                    </Button>
+                </Card.Header>
                 <Card.Body>
                     <Table striped bordered hover responsive="xl">
                         <thead>
@@ -32,28 +33,29 @@ const BallChance = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {ballChance.map((item, index) => {
-                                return (
-                                    <tr key={index}>
-                                        <td
-                                            style={{
-                                                color: "grey",
-                                            }}
-                                        >
-                                            {index + 1}
-                                        </td>
-                                        <td
-                                            style={{
-                                                fontWeight: "bolder",
-                                            }}
-                                        >
-                                            {item[0]}
-                                        </td>
-                                        <td>{item[1]}</td>
-                                        <td>{item[2]} %</td>
-                                    </tr>
-                                );
-                            })}
+                            {rank &&
+                                rank.map((item, index) => {
+                                    return (
+                                        <tr key={index}>
+                                            <td
+                                                style={{
+                                                    color: "grey",
+                                                }}
+                                            >
+                                                {index + 1}
+                                            </td>
+                                            <td
+                                                style={{
+                                                    fontWeight: "bolder",
+                                                }}
+                                            >
+                                                {item[0]}
+                                            </td>
+                                            <td>{item[1]}</td>
+                                            <td>{item[2]} %</td>
+                                        </tr>
+                                    );
+                                })}
                         </tbody>
                     </Table>
                 </Card.Body>
