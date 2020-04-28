@@ -1,13 +1,11 @@
-import React, { useState } from "react";
-import { Card, Button, Row, Col, Container, Table } from "react-bootstrap";
+import React from "react";
+import { Card, Row, Col, Container, Table } from "react-bootstrap";
 import SimulatorControlButtons from "./SimulatorControlButtons/SimulatorControlButtons";
 import BallBox from "../BallBox/BallBox";
 
 type Balls = number[] | [];
 
 const Simulator = () => {
-    const [balls, setBalls] = useState<Balls>([]);
-
     return (
         <>
             <Card
