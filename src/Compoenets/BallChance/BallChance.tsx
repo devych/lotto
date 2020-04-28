@@ -1,5 +1,5 @@
 import React from "react";
-import { Table, Card, Button } from "react-bootstrap";
+import { Table, Card, Button, Alert } from "react-bootstrap";
 
 interface IProps {
     rank: Array<number>[] | null;
@@ -11,22 +11,28 @@ const BallChance = ({ rank, isBnus, handleBnus }: IProps) => {
     return (
         <>
             <Card className="text-center" border={"secondary"}>
-                <Card.Header>
+                <Card.Header style={{ fontSize: "1.2rem" }}>
                     {isBnus ? (
-                        <>보너스 번호 제외한 통계를 보시겠어요?</>
+                        <>보너스 번호 포함 전체기간 확률</>
                     ) : (
-                        <>보너스 번호 포함한 통계를 보시겠어요?</>
+                        <>보너스 번호 제외 전체기간 확률</>
                     )}
-
-                    <Button
-                        variant="outline-dark"
-                        onClick={handleBnus}
-                        style={{ margin: "0 30px" }}
-                    >
-                        버튼을 눌러주세요
-                    </Button>
                 </Card.Header>
                 <Card.Body>
+                    <Alert variant={"info"} style={{ padding: "3px 0" }}>
+                        {isBnus ? (
+                            <>보너스 번호 제외 확률을 보시겠어요?</>
+                        ) : (
+                            <>보너스 번호 포함 확률을 보시겠어요?</>
+                        )}
+                        <Button
+                            variant="outline-dark"
+                            onClick={handleBnus}
+                            style={{ margin: "3px 30px" }}
+                        >
+                            보기
+                        </Button>
+                    </Alert>
                     <Table striped bordered hover responsive="xl">
                         <thead>
                             <tr>
