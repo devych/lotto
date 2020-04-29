@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
-import BallChance from "../../Compoenets/BallChance/BallChance";
-import Loading from "../../Compoenets/Utiliies/Loading";
+import BallChance from "../../compoenets/ballChance/BallChance";
+import Loading from "../../compoenets/utiliies/Loading";
 
 const BallCanceContainer = () => {
     const [rank, setRank] = useState<Array<number>[] | null>(null);

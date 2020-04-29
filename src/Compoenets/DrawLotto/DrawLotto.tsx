@@ -1,5 +1,5 @@
 import React from "react";
-import BallBox from "../BallBox/BallBox";
+import BallBox from "../ballBox/BallBox";
 import { Card, Button, DropdownButton, Dropdown } from "react-bootstrap";
 
 interface IProps {

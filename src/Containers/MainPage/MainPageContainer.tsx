@@ -1,24 +1,8 @@
 import React, { useState, useEffect } from "react";
-import MainPage from "../../Compoenets/MainPage/MainPage";
+import MainPage from "../../compoenets/mainPage/MainPage";
 import Axios from "axios";
-import Loading from "../../Compoenets/Utiliies/Loading";
-
-export interface ILotto {
-    bnusNo: number;
-    drwNo: number;
-    drwNoDate: string;
-    drwtNo1: number;
-    drwtNo2: number;
-    drwtNo3: number;
-    drwtNo4: number;
-    drwtNo5: number;
-    drwtNo6: number;
-    firstAccumamnt: string;
-    firstPrzwnerCo: number;
-    firstWinamnt: number;
-    id: number;
-    totSellamnt: number;
-}
+import Loading from "../../compoenets/utiliies/Loading";
+import { ILotto } from "../../interfaces/interfaces";
 
 const MainPageContainer = () => {
     let [lotto, setLotto] = useState<ILotto[]>([]);

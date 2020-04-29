@@ -1,5 +1,5 @@
 import React from "react";
-import Ball from "./Ball/Ball";
+import Ball from "./ball/Ball";
 
 interface IProps {
     balls?: number[];

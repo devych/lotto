@@ -3,7 +3,6 @@ import styles from "styled-components";
 
 interface IProps {
     ball?: number;
-    key?: number;
     id?: number;
 }
 

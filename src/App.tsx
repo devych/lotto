@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import TopNavBar from "./Compoenets/Navbar/TopNavBar";
-import Footer from "./Compoenets/Footer/Footer";
-import MainPageContainer from "./Containers/MainPage/MainPageContainer";
-import DrawLottoContainer from "./Containers/DrawLotto/DrawLottoContainer";
-import Simulator from "./Compoenets/Simulator/Simulator";
-import BallCanceContainer from "./Containers/BallChance/BallCanceContainer";
+import TopNavBar from "./compoenets/navbar/TopNavBar";
+import Footer from "./compoenets/footer/Footer";
+import MainPageContainer from "./containers/mainPage/MainPageContainer";
+import DrawLottoContainer from "./containers/drawLotto/DrawLottoContainer";
+import BallCanceContainer from "./containers/ballChance/BallCanceContainer";
+import SimulatorContainer from "./containers/simulator/SimulatorContainer";
 
 const App: React.FC = () => {
     return (
@@ -24,7 +24,7 @@ const App: React.FC = () => {
                             <BallCanceContainer />
                         </Route>
                         <Route path="/simulator">
-                            <Simulator />
+                            <SimulatorContainer />
                         </Route>
                     </Switch>
                 </div>

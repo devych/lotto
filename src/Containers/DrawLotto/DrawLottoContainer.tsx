@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import DrawLotto from "../../Compoenets/DrawLotto/DrawLotto";
 import Axios from "axios";
-import Loading from "../../Compoenets/Utiliies/Loading";
+import Loading from "../../compoenets/utiliies/Loading";
+import DrawLotto from "../../compoenets/drawLotto/DrawLotto";
 
 interface ICount {
     count: number;

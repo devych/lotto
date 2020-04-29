@@ -1,30 +1,13 @@
 import React from "react";
 import { Card, Dropdown, Container, Row, Col } from "react-bootstrap";
-import BallBox from "../BallBox/BallBox";
-import Loading from "../Utiliies/Loading";
-// const fakeData = ["889회", "888회", "887회", "886회", "885회"];
+import BallBox from "../ballBox/BallBox";
+import Loading from "../utiliies/Loading";
+import { ILotto } from "../../interfaces/interfaces";
 
 interface IProps {
     lotto: ILotto[];
     selectedLotto: ILotto | null;
     onSelect: (e: any) => void;
-}
-
-interface ILotto {
-    bnusNo: number;
-    drwNo: number;
-    drwNoDate: string;
-    drwtNo1: number;
-    drwtNo2: number;
-    drwtNo3: number;
-    drwtNo4: number;
-    drwtNo5: number;
-    drwtNo6: number;
-    firstAccumamnt: string;
-    firstPrzwnerCo: number;
-    firstWinamnt: number;
-    id: number;
-    totSellamnt: number;
 }
 
 const MainPage = ({ lotto, selectedLotto, onSelect }: IProps) => {
@@ -138,7 +121,7 @@ const MainPage = ({ lotto, selectedLotto, onSelect }: IProps) => {
                         </Container>
                     </Card.Body>
                 )}
-                <Card.Body>gd</Card.Body>
+                <Card.Body></Card.Body>
             </Card>
         </>
     );
