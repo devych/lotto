@@ -154,24 +154,28 @@ const Simulator = ({
                                                 {obj.list.length / curRound}%
                                             </td>
                                             <td>
-                                                {obj.list.map((balls) => {
-                                                    return (
-                                                        <>
-                                                            {`${balls[1]![0]}, 
+                                                {obj.list.map(
+                                                    (balls, ballIdx) => {
+                                                        return (
+                                                            <span key={ballIdx}>
+                                                                {`${
+                                                                    balls[1]![0]
+                                                                }, 
                                                             ${balls[1]![1]},
                                                             ${balls[1]![2]},
                                                             ${balls[1]![3]},
                                                             ${balls[1]![4]},
                                                             ${balls[1]![5]}`}
-                                                            <br />
-                                                        </>
-                                                    );
-                                                })}
+                                                                <br />
+                                                            </span>
+                                                        );
+                                                    }
+                                                )}
                                             </td>
                                         </tr>
                                     );
                                 } else {
-                                    return <></>;
+                                    return <tr key={idx}></tr>;
                                 }
                             })}
                         </tbody>
