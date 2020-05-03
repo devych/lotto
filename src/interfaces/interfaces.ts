@@ -14,3 +14,8 @@ export interface ILotto {
     id: number;
     totSellamnt: number;
 }
+
+export interface IWinList {
+    rank: number;
+    list: Array<[number?, number[]?]>;
+}
