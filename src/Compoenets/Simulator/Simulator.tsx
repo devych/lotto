@@ -1,11 +1,34 @@
 import React from "react";
-import { Card, Row, Col, Container, Table } from "react-bootstrap";
-import SimulatorControlButtons from "./SimulatorControlButtons/SimulatorControlButtons";
-import BallBox from "../BallBox/BallBox";
+import { Card, Row, Col, Container, Table, ProgressBar } from "react-bootstrap";
+import SimulatorControlButtons from "./simulatorControlButtons/SimulatorControlButtons";
+import BallBox from "../ballBox/BallBox";
+import { ILotto, IWinList } from "../../interfaces/interfaces";
 
-type Balls = number[] | [];
+interface IProps {
+    lotto: ILotto[] | [];
+    selectedLotto?: ILotto | null;
+    winList: IWinList[];
+    simulationRound: number;
+    curRound: number;
+    progress: number;
+    handleLotto?: (e: string) => void;
+    handleSimulationRound: (e: string) => void;
+    startSimulator: () => void;
+    stopSimulator: () => void;
+}
 
-const Simulator = () => {
+const Simulator = ({
+    lotto,
+    selectedLotto,
+    winList,
+    simulationRound,
+    curRound,
+    progress,
+    handleLotto,
+    handleSimulationRound,
+    startSimulator,
+    stopSimulator,
+}: IProps) => {
     return (
         <>
             <Card
@@ -15,39 +38,82 @@ const Simulator = () => {
                 border={"secondary"}
             >
                 <Card.Header>
-                    <SimulatorControlButtons />
+                    <SimulatorControlButtons
+                        lotto={lotto}
+                        handleLotto={handleLotto}
+                        handleSimulationRound={handleSimulationRound}
+                        startSimulator={startSimulator}
+                        stopSimulator={stopSimulator}
+                    />
                 </Card.Header>
-                <Card.Body
-                    style={{ borderBottom: "1px solid rgba(0,0,0,.125)" }}
-                >
-                    <Container>
-                        <Row>
-                            <Col sm={9}>
-                                <Row>
-                                    <Col>907회차 당첨 번호</Col>
-                                </Row>
-                                <Row>
-                                    <Col>
-                                        <BallBox
-                                            balls={[1, 9, 15, 28, 30, 44]}
-                                        />
-                                    </Col>
-                                </Row>
-                            </Col>
-                            <Col sm={3}>
-                                <Row>
-                                    <Col>보너스 번호</Col>
-                                </Row>
-                                <Row>
-                                    <Col>
-                                        <BallBox balls={[32]} />
-                                    </Col>
-                                </Row>
-                            </Col>
-                        </Row>
-                    </Container>
-                </Card.Body>
+                {selectedLotto ? (
+                    <Card.Body
+                        style={{ borderBottom: "1px solid rgba(0,0,0,.125)" }}
+                    >
+                        <Container>
+                            <Row>
+                                <Col sm={6}>
+                                    <Row>
+                                        <Col>
+                                            {selectedLotto!.drwNo}회차 당첨 번호
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col>
+                                            <BallBox
+                                                balls={[
+                                                    selectedLotto!.drwtNo1,
+                                                    selectedLotto!.drwtNo2,
+                                                    selectedLotto!.drwtNo3,
+                                                    selectedLotto!.drwtNo4,
+                                                    selectedLotto!.drwtNo5,
+                                                    selectedLotto!.drwtNo6,
+                                                ]}
+                                            />
+                                        </Col>
+                                    </Row>
+                                </Col>
+                                <Col sm={3}>
+                                    <Row>
+                                        <Col>보너스 번호</Col>
+                                    </Row>
+                                    <Row>
+                                        <Col>
+                                            <BallBox
+                                                balls={[selectedLotto!.bnusNo]}
+                                            />
+                                        </Col>
+                                    </Row>
+                                </Col>
+                                <Col sm={3}>
+                                    <Row>
+                                        <Col>시뮬레이션 횟수</Col>
+                                    </Row>
+                                    <Row>
+                                        <Col>{simulationRound}</Col>
+                                    </Row>
+                                </Col>
+                            </Row>
+                        </Container>
+                    </Card.Body>
+                ) : (
+                    ""
+                )}
                 <Card.Body>
+                    {progress ? (
+                        progress !== 100 ? (
+                            <ProgressBar
+                                animated
+                                now={progress}
+                                label={`${progress}%`}
+                            />
+                        ) : (
+                            <ProgressBar now={progress} label={`완료`} />
+                        )
+                    ) : (
+                        <></>
+                    )}
+                    <br />
                     <Table
                         striped
                         bordered
@@ -68,38 +134,46 @@ const Simulator = () => {
                                     확률
                                 </th>
                                 <th>
-                                    최근 당첨번호
+                                    당첨
                                     <br />
-                                    5개
+                                    번호
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Larry the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Larry the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>Larry the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
+                            {winList.map((obj, idx) => {
+                                if (obj.list.length > 0) {
+                                    return (
+                                        <tr key={idx}>
+                                            <td>
+                                                {`${obj.rank}`}
+                                                <br />
+                                                {`(${obj.list.length})`}
+                                            </td>
+                                            <td>
+                                                {obj.list.length / curRound}%
+                                            </td>
+                                            <td>
+                                                {obj.list.map((balls) => {
+                                                    return (
+                                                        <>
+                                                            {`${balls[1]![0]}, 
+                                                            ${balls[1]![1]},
+                                                            ${balls[1]![2]},
+                                                            ${balls[1]![3]},
+                                                            ${balls[1]![4]},
+                                                            ${balls[1]![5]}`}
+                                                            <br />
+                                                        </>
+                                                    );
+                                                })}
+                                            </td>
+                                        </tr>
+                                    );
+                                } else {
+                                    return <></>;
+                                }
+                            })}
                         </tbody>
                     </Table>
                 </Card.Body>

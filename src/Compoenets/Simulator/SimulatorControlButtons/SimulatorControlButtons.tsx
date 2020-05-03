@@ -1,7 +1,22 @@
 import React from "react";
 import { Container, Row, Col, Button, Dropdown } from "react-bootstrap";
+import { ILotto } from "../../../interfaces/interfaces";
 
-const SimulatorControlButtons = () => {
+interface IProps {
+    lotto: ILotto[];
+    handleLotto?: (e: string) => void;
+    handleSimulationRound: (e: string) => void;
+    startSimulator: () => void;
+    stopSimulator: () => void;
+}
+
+const SimulatorControlButtons = ({
+    lotto,
+    handleLotto,
+    handleSimulationRound,
+    startSimulator,
+    stopSimulator,
+}: IProps) => {
     return (
         <Container>
             <Row className="justify-content-md-center">
@@ -14,9 +29,21 @@ const SimulatorControlButtons = () => {
                         >
                             로또 회차 선택
                         </Dropdown.Toggle>
-
-                        <Dropdown.Menu>
-                            <Dropdown.Item href="#/action-1">907</Dropdown.Item>
+                        <Dropdown.Menu
+                            style={{
+                                overflowY: "scroll",
+                                maxHeight: "300px",
+                            }}
+                        >
+                            {lotto.map((item, key) => (
+                                <Dropdown.Item
+                                    onSelect={handleLotto}
+                                    eventKey={`${item.drwNo}`}
+                                    key={key}
+                                >
+                                    {item.drwNo}회
+                                </Dropdown.Item>
+                            ))}
                         </Dropdown.Menu>
                     </Dropdown>
                 </Col>
@@ -27,22 +54,18 @@ const SimulatorControlButtons = () => {
                             id="dropdown-basic"
                             size="sm"
                         >
-                            시뮬레이션 횟수: 기본 100
+                            시뮬레이션 횟수
                         </Dropdown.Toggle>
-                        <Dropdown.Menu>
-                            <Dropdown.Item href="#/action-1">100</Dropdown.Item>
-                            <Dropdown.Item href="#/action-2">
-                                1000
-                            </Dropdown.Item>
-                            <Dropdown.Item href="#/action-3">
-                                10000
-                            </Dropdown.Item>
-                            <Dropdown.Item href="#/action-3">
-                                100000
-                            </Dropdown.Item>
-                            <Dropdown.Item href="#/action-3">
-                                1000000
-                            </Dropdown.Item>
+                        <Dropdown.Menu style={{ textAlign: "right" }}>
+                            {[10, 50, 100, 500, 1000].map((item, idx) => (
+                                <Dropdown.Item
+                                    onSelect={handleSimulationRound}
+                                    eventKey={`${item}`}
+                                    key={idx}
+                                >
+                                    {item}
+                                </Dropdown.Item>
+                            ))}
                         </Dropdown.Menu>
                     </Dropdown>
                 </Col>
@@ -50,10 +73,14 @@ const SimulatorControlButtons = () => {
             <br />
             <Row className="justify-content-md-center">
                 <Col xs lg="auto">
-                    <Button variant="success"> 시작</Button>
+                    <Button variant="success" onClick={startSimulator}>
+                        시작
+                    </Button>
                 </Col>
                 <Col xs lg="auto">
-                    <Button variant="danger"> 정지</Button>
+                    <Button variant="danger" onClick={stopSimulator}>
+                        정지
+                    </Button>
                 </Col>
                 <Col xs lg="auto">
                     <Button variant="secondary">초기화</Button>
