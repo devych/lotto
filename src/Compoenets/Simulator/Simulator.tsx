@@ -151,7 +151,12 @@ const Simulator = ({
                                                 {`(${obj.list.length})`}
                                             </td>
                                             <td>
-                                                {obj.list.length / curRound}%
+                                                {(
+                                                    (obj.list.length /
+                                                        curRound) *
+                                                    100
+                                                ).toFixed(2)}
+                                                %
                                             </td>
                                             <td>
                                                 {obj.list.map(
