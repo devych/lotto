@@ -15,6 +15,7 @@ interface IProps {
     handleSimulationRound: (e: string) => void;
     startSimulator: () => void;
     stopSimulator: () => void;
+    resetSimulator: () => void;
 }
 
 const Simulator = ({
@@ -28,6 +29,7 @@ const Simulator = ({
     handleSimulationRound,
     startSimulator,
     stopSimulator,
+    resetSimulator,
 }: IProps) => {
     return (
         <>
@@ -44,6 +46,7 @@ const Simulator = ({
                         handleSimulationRound={handleSimulationRound}
                         startSimulator={startSimulator}
                         stopSimulator={stopSimulator}
+                        resetSimulator={resetSimulator}
                     />
                 </Card.Header>
                 {selectedLotto ? (

@@ -8,6 +8,7 @@ interface IProps {
     handleSimulationRound: (e: string) => void;
     startSimulator: () => void;
     stopSimulator: () => void;
+    resetSimulator: () => void;
 }
 
 const SimulatorControlButtons = ({
@@ -16,6 +17,7 @@ const SimulatorControlButtons = ({
     handleSimulationRound,
     startSimulator,
     stopSimulator,
+    resetSimulator,
 }: IProps) => {
     return (
         <Container>
@@ -83,7 +85,9 @@ const SimulatorControlButtons = ({
                     </Button>
                 </Col>
                 <Col xs lg="auto">
-                    <Button variant="secondary">초기화</Button>
+                    <Button variant="secondary" onClick={resetSimulator}>
+                        초기화
+                    </Button>
                 </Col>
             </Row>
         </Container>

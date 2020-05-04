@@ -32,6 +32,7 @@ const SimulatorContainer = () => {
             );
             let data = response.data.data.reverse();
             setLotto(data);
+            console.log("fetchData");
         } catch (err) {
             console.error(err);
         }
@@ -91,6 +92,9 @@ const SimulatorContainer = () => {
     };
 
     const startSimulator = () => {
+        if (curRound >= simulationRound) {
+            return;
+        }
         simul && simul.start(setCurRound, setWinList, winList);
     };
 
@@ -98,10 +102,21 @@ const SimulatorContainer = () => {
         simul && simul.stop();
     };
 
-    // const resetSimulator = () => {
-    //     //페이지를 초기화면으로 리다이렉션하면될듯
-    //     //페치를 다시받아와야하니까 필요한 스테이트를 초기화 하는것도 괜찮고
-    // };
+    const resetSimulator = () => {
+        simul && simul.stop();
+        setWinList([
+            { rank: 1, list: [] },
+            { rank: 2, list: [] },
+            { rank: 3, list: [] },
+            { rank: 4, list: [] },
+            { rank: 5, list: [] },
+        ]);
+        setSimulationRound(0);
+        setCurRound(0);
+        setSimul(null);
+        setProgress(0);
+        setSelectedLotto(null);
+    };
 
     if (loading) {
         return <Loading />;
@@ -119,6 +134,7 @@ const SimulatorContainer = () => {
             handleSimulationRound={handleSimulationRound}
             startSimulator={startSimulator}
             stopSimulator={stopSimulator}
+            resetSimulator={resetSimulator}
         />
     );
 };
