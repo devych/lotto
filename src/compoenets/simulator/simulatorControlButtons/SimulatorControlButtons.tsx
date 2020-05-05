@@ -59,15 +59,17 @@ const SimulatorControlButtons = ({
                             시뮬레이션 횟수
                         </Dropdown.Toggle>
                         <Dropdown.Menu style={{ textAlign: "right" }}>
-                            {[10, 50, 100, 500, 1000].map((item, idx) => (
-                                <Dropdown.Item
-                                    onSelect={handleSimulationRound}
-                                    eventKey={`${item}`}
-                                    key={idx}
-                                >
-                                    {item}
-                                </Dropdown.Item>
-                            ))}
+                            {[100, 1000, 10000, 100000, 1000000].map(
+                                (item, idx) => (
+                                    <Dropdown.Item
+                                        onSelect={handleSimulationRound}
+                                        eventKey={`${item}`}
+                                        key={idx}
+                                    >
+                                        {item}
+                                    </Dropdown.Item>
+                                )
+                            )}
                         </Dropdown.Menu>
                     </Dropdown>
                 </Col>

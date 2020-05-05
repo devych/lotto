@@ -165,7 +165,15 @@ const Simulator = ({
                                                 {obj.list.map(
                                                     (balls, ballIdx) => {
                                                         return (
-                                                            <span key={ballIdx}>
+                                                            <span
+                                                                key={ballIdx}
+                                                                style={{
+                                                                    display:
+                                                                        "block",
+                                                                }}
+                                                            >
+                                                                {`${balls[0]}번째 출현`}
+                                                                <br />
                                                                 {`${
                                                                     balls[1]![0]
                                                                 }, 

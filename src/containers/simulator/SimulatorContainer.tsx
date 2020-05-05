@@ -32,7 +32,6 @@ const SimulatorContainer = () => {
             );
             let data = response.data.data.reverse();
             setLotto(data);
-            console.log("fetchData");
         } catch (err) {
             console.error(err);
         }
