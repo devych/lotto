@@ -6,16 +6,24 @@ import { ILotto } from "../../interfaces/interfaces";
 
 const MainPageContainer = () => {
     let [lotto, setLotto] = useState<ILotto[]>([]);
+    let [createdLottoWin, SetCreatedLottoWin] = useState<
+        [[number, number, string, string, number[], number[], string]] | []
+    >([]);
     let [selectedLotto, setSelectedLotto] = useState<ILotto | null>(null);
     let [loading, setLoading] = useState(false);
 
     const fetchData = async () => {
         try {
             setLoading(true);
-            const response = await Axios.get(
+            const responseLotto = await Axios.get(
                 "http://13.124.128.25:5000/lotto/all"
             );
-            let data = response.data.data.reverse();
+            const responseCreatedLotto = await Axios.get(
+                "http://13.124.128.25:5000/lotto/check"
+            );
+            let createdLotto = responseCreatedLotto.data.data;
+            SetCreatedLottoWin(createdLotto);
+            let data = responseLotto.data.data.reverse();
             setLotto(data);
         } catch (err) {
             console.error(err);
@@ -41,6 +49,7 @@ const MainPageContainer = () => {
             <MainPage
                 lotto={lotto}
                 selectedLotto={selectedLotto}
+                createdLottoWin={createdLottoWin}
                 onSelect={handleLotto}
             />
         </>

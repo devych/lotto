@@ -3,20 +3,33 @@ import { Card, Dropdown, Container, Row, Col } from "react-bootstrap";
 import BallBox from "../ballBox/BallBox";
 import Loading from "../utiliies/Loading";
 import { ILotto } from "../../interfaces/interfaces";
+import CreatedLottoWinner from "./createdLottoWin/CreatedLottoWin";
+import { TiPlus } from "react-icons/ti";
 
 interface IProps {
     lotto: ILotto[];
     selectedLotto: ILotto | null;
+    createdLottoWin:
+        | Array<[number, number, string, string, number[], number[], string]>
+        | [];
     onSelect: (e: any) => void;
 }
 
-const MainPage = ({ lotto, selectedLotto, onSelect }: IProps) => {
+const MainPage = ({
+    lotto,
+    selectedLotto,
+    createdLottoWin,
+    onSelect,
+}: IProps) => {
     return (
         <>
             <Card className="text-center" border={"secondary"}>
                 <Card.Header>
                     <Dropdown onSelect={onSelect}>
-                        <Dropdown.Toggle variant="success" id="dropdown-basic">
+                        <Dropdown.Toggle
+                            id="dropdown-basic"
+                            variant="outline-secondary"
+                        >
                             지난 회차
                         </Dropdown.Toggle>
 
@@ -41,12 +54,15 @@ const MainPage = ({ lotto, selectedLotto, onSelect }: IProps) => {
                     <Card.Body>
                         <Container>
                             <Row>
-                                <Col sm={7}>
-                                    <Row>
-                                        <Col>
-                                            {lotto[0].drwNo}회차 로또 당첨 번호
-                                        </Col>
-                                    </Row>
+                                <Col>
+                                    {lotto[0].drwNo}회 로또 당첨 결과 <br />(
+                                    {lotto[0].drwNoDate.slice(0, 4)}년{" "}
+                                    {lotto[0].drwNoDate.slice(5, 7)}월{" "}
+                                    {lotto[0].drwNoDate.slice(8, 10)}일 추첨)
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col sm={7} md={{ span: 5, offset: 2 }}>
                                     <Row>
                                         <Col>
                                             <BallBox
@@ -61,17 +77,24 @@ const MainPage = ({ lotto, selectedLotto, onSelect }: IProps) => {
                                             />
                                         </Col>
                                     </Row>
-                                </Col>
-                                <Col sm={5}>
                                     <Row>
-                                        <Col>보너스 번호</Col>
+                                        <Col>당첨 번호</Col>
                                     </Row>
+                                </Col>
+                                <Col sm={1}>
+                                    <br />
+                                    <TiPlus />
+                                </Col>
+                                <Col sm={3} md={{ span: 2 }}>
                                     <Row>
                                         <Col>
                                             <BallBox
                                                 balls={[lotto[0]!.bnusNo]}
                                             />
                                         </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col>보너스 번호</Col>
                                     </Row>
                                 </Col>
                             </Row>
@@ -83,13 +106,17 @@ const MainPage = ({ lotto, selectedLotto, onSelect }: IProps) => {
                     <Card.Body>
                         <Container>
                             <Row>
-                                <Col sm={7}>
-                                    <Row>
-                                        <Col>
-                                            {selectedLotto!.drwNo}회차 로또 당첨
-                                            번호
-                                        </Col>
-                                    </Row>
+                                <Col>
+                                    {selectedLotto!.drwNo}회 로또 당첨 결과{" "}
+                                    <br />(
+                                    {selectedLotto!.drwNoDate.slice(0, 4)}년{" "}
+                                    {selectedLotto!.drwNoDate.slice(5, 7)}월{" "}
+                                    {selectedLotto!.drwNoDate.slice(8, 10)}일
+                                    추첨)
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col sm={7} md={{ span: 5, offset: 2 }}>
                                     <Row>
                                         <Col>
                                             <BallBox
@@ -104,11 +131,15 @@ const MainPage = ({ lotto, selectedLotto, onSelect }: IProps) => {
                                             />
                                         </Col>
                                     </Row>
-                                </Col>
-                                <Col sm={5}>
                                     <Row>
-                                        <Col>보너스 번호</Col>
+                                        <Col>당첨 번호</Col>
                                     </Row>
+                                </Col>
+                                <Col sm={1}>
+                                    <br />
+                                    <TiPlus />
+                                </Col>
+                                <Col sm={3} md={{ span: 2 }}>
                                     <Row>
                                         <Col>
                                             <BallBox
@@ -116,13 +147,17 @@ const MainPage = ({ lotto, selectedLotto, onSelect }: IProps) => {
                                             />
                                         </Col>
                                     </Row>
+                                    <Row>
+                                        <Col>보너스 번호</Col>
+                                    </Row>
                                 </Col>
                             </Row>
                         </Container>
                     </Card.Body>
                 )}
-                <Card.Body></Card.Body>
             </Card>
+            <br />
+            <CreatedLottoWinner createdLottoWin={createdLottoWin} />
         </>
     );
 };
