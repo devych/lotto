@@ -18,7 +18,7 @@ const DrawLotto = ({ lottoBalls, handleCount, handleLotto, count }: IProps) => {
                     <DropdownButton
                         key={"secondary"}
                         id={`dropdown-variants-$Secondary`}
-                        variant={"secondary"}
+                        variant="outline-secondary"
                         title={count ? count + "개" : "개수"}
                         style={{ display: "inline-block", marginRight: "30px" }}
                         onSelect={handleCount}
@@ -34,7 +34,7 @@ const DrawLotto = ({ lottoBalls, handleCount, handleLotto, count }: IProps) => {
                             );
                         })}
                     </DropdownButton>
-                    <Button variant="success" onClick={handleLotto}>
+                    <Button variant="outline-secondary" onClick={handleLotto}>
                         번호 생성
                     </Button>
                 </Card.Header>

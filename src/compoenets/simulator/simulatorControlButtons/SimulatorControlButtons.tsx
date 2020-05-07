@@ -25,7 +25,7 @@ const SimulatorControlButtons = ({
                 <Col xs lg="auto">
                     <Dropdown style={{ margin: "2px" }}>
                         <Dropdown.Toggle
-                            variant="info"
+                            variant="outline-secondary"
                             id="dropdown-basic"
                             size="sm"
                         >
@@ -52,7 +52,7 @@ const SimulatorControlButtons = ({
                 <Col xs lg="auto">
                     <Dropdown style={{ margin: "2px" }}>
                         <Dropdown.Toggle
-                            variant="info"
+                            variant="outline-secondary"
                             id="dropdown-basic"
                             size="sm"
                         >
