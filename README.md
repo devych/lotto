@@ -1,6 +1,5 @@
 # TToloTTo
 
-# 또로또
 
 접속정보 : www.ttolotto.me
 
