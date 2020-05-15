@@ -1,5 +1,6 @@
 import React from "react";
 import { Table, Card, Button, Alert } from "react-bootstrap";
+import HelmetComponent from "../helmet/HelmetComponent";
 
 interface IProps {
     rank: Array<number>[] | null;
@@ -10,6 +11,13 @@ interface IProps {
 const BallChance = ({ rank, isBnus, handleBnus }: IProps) => {
     return (
         <>
+            <HelmetComponent
+                title={"또로또 - 로또 번호별 확률"}
+                description={
+                    "로또 1회부터 현재까지 번호변 출현 확률을 계산해 어떤 번호가 가장 많이 출현했는지 확인 할 수 있습니다."
+                }
+                ogUrl={"http://ttolotto.me/ballchance"}
+            />
             <Card className="text-center" border={"secondary"}>
                 <Card.Header style={{ fontSize: "1.2rem" }}>
                     {isBnus ? (

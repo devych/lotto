@@ -1,8 +1,17 @@
 import React from "react";
-import { Card, Row, Col, Container, Table, ProgressBar } from "react-bootstrap";
+import {
+    Card,
+    Row,
+    Col,
+    Container,
+    Table,
+    ProgressBar,
+    Alert,
+} from "react-bootstrap";
 import SimulatorControlButtons from "./simulatorControlButtons/SimulatorControlButtons";
 import BallBox from "../ballBox/BallBox";
 import { ILotto, IWinList } from "../../interfaces/interfaces";
+import HelmetComponent from "../helmet/HelmetComponent";
 
 interface IProps {
     lotto: ILotto[] | [];
@@ -33,6 +42,16 @@ const Simulator = ({
 }: IProps) => {
     return (
         <>
+            <HelmetComponent
+                title={"또로또 - 로또 시뮬레이터"}
+                description={
+                    "로또 시뮬레이터를 통해 자동 번호를 생성하여 로또 당첨 확률을 직접적으로 경험해 볼 수 있습니다."
+                }
+                ogUrl={"http://ttolotto.me/simulator"}
+            />
+            <Alert variant="success">
+                로또 회차와 시뮬레이션 횟수를 먼저 선택하고 시작을 눌러주세요.
+            </Alert>
             <Card
                 className="text-center"
                 bg={"light"}
@@ -49,6 +68,7 @@ const Simulator = ({
                         resetSimulator={resetSimulator}
                     />
                 </Card.Header>
+
                 {selectedLotto ? (
                     <Card.Body
                         style={{ borderBottom: "1px solid rgba(0,0,0,.125)" }}
@@ -191,7 +211,13 @@ const Simulator = ({
                                         </tr>
                                     );
                                 } else {
-                                    return <tr key={idx}></tr>;
+                                    return (
+                                        <tr key={idx}>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    );
                                 }
                             })}
                         </tbody>
@@ -202,7 +228,13 @@ const Simulator = ({
                     className="text-muted"
                     style={{ background: "#f8f9fa" }}
                 >
-                    모든것은 재미로 하세요
+                    로또는 한 주간의 즐거운 희망을 심어주는 가벼운 오락 활동의
+                    하나입니다.
+                    <br />
+                    <br />
+                    소액으로 건전하게 구매할 때 나에겐 희망이 되고, 모두에게
+                    행복이 됩니다.
+                    <br />
                 </Card.Footer>
             </Card>
         </>

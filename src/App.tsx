@@ -20,7 +20,7 @@ const App: React.FC = () => {
                         <Route path="/drawlotto">
                             <DrawLottoContainer />
                         </Route>
-                        <Route path="/ballChance">
+                        <Route path="/ballchance">
                             <BallCanceContainer />
                         </Route>
                         <Route path="/simulator">

@@ -5,6 +5,7 @@ import Loading from "../utiliies/Loading";
 import { ILotto } from "../../interfaces/interfaces";
 import CreatedLottoWinner from "./createdLottoWin/CreatedLottoWin";
 import { TiPlus } from "react-icons/ti";
+import HelmetComponent from "../helmet/HelmetComponent";
 
 interface IProps {
     lotto: ILotto[];
@@ -23,6 +24,13 @@ const MainPage = ({
 }: IProps) => {
     return (
         <>
+            <HelmetComponent
+                title={"또로또 - 로또 당첨 정보"}
+                description={
+                    "로또 당첨 결과를 조회하고, 지금까지 로또 생성기로 생성된 번호들의 당첨 결과를 확인 할 수 있습니다."
+                }
+                ogUrl={"http://ttolotto.me/"}
+            />
             <Card className="text-center" border={"secondary"}>
                 <Card.Header>
                     <Dropdown onSelect={onSelect}>
@@ -59,6 +67,8 @@ const MainPage = ({
                                     {lotto[0].drwNoDate.slice(0, 4)}년{" "}
                                     {lotto[0].drwNoDate.slice(5, 7)}월{" "}
                                     {lotto[0].drwNoDate.slice(8, 10)}일 추첨)
+                                    <br />
+                                    <br />
                                 </Col>
                             </Row>
                             <Row>
@@ -113,6 +123,8 @@ const MainPage = ({
                                     {selectedLotto!.drwNoDate.slice(5, 7)}월{" "}
                                     {selectedLotto!.drwNoDate.slice(8, 10)}일
                                     추첨)
+                                    <br />
+                                    <br />
                                 </Col>
                             </Row>
                             <Row>

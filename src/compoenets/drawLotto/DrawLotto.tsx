@@ -1,6 +1,7 @@
 import React from "react";
 import BallBox from "../ballBox/BallBox";
 import { Card, Button, DropdownButton, Dropdown } from "react-bootstrap";
+import HelmetComponent from "../helmet/HelmetComponent";
 
 interface IProps {
     lottoBalls: Array<number>[] | null;
@@ -13,6 +14,13 @@ type Balls = number[];
 const DrawLotto = ({ lottoBalls, handleCount, handleLotto, count }: IProps) => {
     return (
         <>
+            <HelmetComponent
+                title={"또로또 - 로또 번호 생성"}
+                description={
+                    "로또 번호 생성 기능을 통하여 원하는 개수의 번호를 생성 할 수 있습니다."
+                }
+                ogUrl={"http://ttolotto.me/drawlotto"}
+            />
             <Card className="text-center" border={"secondary"}>
                 <Card.Header>
                     <DropdownButton
