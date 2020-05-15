@@ -78,6 +78,9 @@ const SimulatorContainer = () => {
     }, [curRound, simulationRound]);
 
     const handleLotto = (e: string): void => {
+        if (simul) {
+            stopSimulator();
+        }
         let target = Number(e);
         let filteredLotto = lotto.filter((item) => item.drwNo === target);
         setSelectedLotto(filteredLotto[0]);
@@ -85,6 +88,9 @@ const SimulatorContainer = () => {
     };
 
     const handleSimulationRound = (e: string) => {
+        if (simul) {
+            stopSimulator();
+        }
         let target = Number(e);
         setSimulationRound(target);
         checkSimulationSetting();
