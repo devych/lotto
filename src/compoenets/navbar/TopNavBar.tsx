@@ -22,7 +22,7 @@ const TopNavBar: React.FC = () => {
             >
                 <Navbar.Brand>
                     <Link className="navbar-brand mb-0 h1" to="/">
-                        TToloTTo
+                        또로또
                     </Link>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarNav" />
@@ -33,13 +33,13 @@ const TopNavBar: React.FC = () => {
                             로또 당첨 정보
                         </Link>
                         <Link className="nav-link" to="/drawlotto">
-                            로또 번호 생성
+                            번호 생성
                         </Link>
                         <Link className="nav-link" to="/ballChance">
                             번호별 확률
                         </Link>
                         <Link className="nav-link" to="/simulator">
-                            로또 시뮬레이션
+                            로또 시뮬레이터
                         </Link>
                     </Nav>
                 </Navbar.Collapse>
