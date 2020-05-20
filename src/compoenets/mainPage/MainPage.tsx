@@ -31,6 +31,7 @@ const MainPage = ({
                 }
                 ogUrl={"http://ttolotto.me/"}
             />
+            <h1>로또 당첨 결과 조회</h1>
             <Card className="text-center" border={"secondary"}>
                 <Card.Header>
                     <Dropdown onSelect={onSelect}>

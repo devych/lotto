@@ -49,6 +49,7 @@ const Simulator = ({
                 }
                 ogUrl={"http://ttolotto.me/simulator"}
             />
+            <h1>로또 시뮬레이터</h1>
             <Alert variant="success">
                 로또 회차와 시뮬레이션 횟수를 먼저 선택하고 시작을 눌러주세요.
             </Alert>

@@ -21,6 +21,7 @@ const DrawLotto = ({ lottoBalls, handleCount, handleLotto, count }: IProps) => {
                 }
                 ogUrl={"http://ttolotto.me/drawlotto"}
             />
+            <h1>로또 번호 생성</h1>
             <Card className="text-center" border={"secondary"}>
                 <Card.Header>
                     <DropdownButton

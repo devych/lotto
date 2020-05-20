@@ -18,6 +18,7 @@ const BallChance = ({ rank, isBnus, handleBnus }: IProps) => {
                 }
                 ogUrl={"http://ttolotto.me/ballchance"}
             />
+            <h1>로또 번호별 확률</h1>
             <Card className="text-center" border={"secondary"}>
                 <Card.Header style={{ fontSize: "1.2rem" }}>
                     {isBnus ? (
