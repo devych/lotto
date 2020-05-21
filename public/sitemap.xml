@@ -6,12 +6,12 @@
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>http://ttolotto.me/drawlotto/</loc>
+        <loc>http://ttolotto.me/generate/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>http://ttolotto.me/ballChance/</loc>
+        <loc>http://ttolotto.me/ballchance/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
