@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import Axios from "axios";
 import Loading from "../../compoenets/utiliies/Loading";
-import DrawLotto from "../../compoenets/drawLotto/DrawLotto";
+import DrawLotto from "../../compoenets/generate/Generate";
 
 interface ICount {
     count: number;
 }
 
-const DrawLottoContainer = () => {
+const GenerateContainer = () => {
     const [count, setCount] = useState(0);
     const [lottoBalls, setLottoBalls] = useState<Array<number>[] | []>([]);
     const [loading, setLoading] = useState(false);
@@ -46,4 +46,4 @@ const DrawLottoContainer = () => {
     );
 };
 
-export default DrawLottoContainer;
+export default GenerateContainer;

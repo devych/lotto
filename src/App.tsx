@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import TopNavBar from "./compoenets/navbar/TopNavBar";
 import Footer from "./compoenets/footer/Footer";
 import MainPageContainer from "./containers/mainPage/MainPageContainer";
-import DrawLottoContainer from "./containers/drawLotto/DrawLottoContainer";
+import DrawLottoContainer from "./containers/generate/GenerateContainer";
 import BallCanceContainer from "./containers/ballChance/BallCanceContainer";
 import SimulatorContainer from "./containers/simulator/SimulatorContainer";
 
@@ -17,7 +17,7 @@ const App: React.FC = () => {
                         <Route exact path="/">
                             <MainPageContainer />
                         </Route>
-                        <Route path="/drawlotto">
+                        <Route path="/generate">
                             <DrawLottoContainer />
                         </Route>
                         <Route path="/ballchance">

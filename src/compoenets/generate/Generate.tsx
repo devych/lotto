@@ -11,7 +11,7 @@ interface IProps {
 }
 
 type Balls = number[];
-const DrawLotto = ({ lottoBalls, handleCount, handleLotto, count }: IProps) => {
+const Generate = ({ lottoBalls, handleCount, handleLotto, count }: IProps) => {
     return (
         <>
             <HelmetComponent
@@ -86,4 +86,4 @@ const DrawLotto = ({ lottoBalls, handleCount, handleLotto, count }: IProps) => {
     );
 };
 
-export default DrawLotto;
+export default Generate;

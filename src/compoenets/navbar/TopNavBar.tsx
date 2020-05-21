@@ -32,10 +32,10 @@ const TopNavBar: React.FC = () => {
                         <Link className="nav-link" to="/">
                             로또 당첨 정보
                         </Link>
-                        <Link className="nav-link" to="/drawlotto">
+                        <Link className="nav-link" to="/generate">
                             번호 생성
                         </Link>
-                        <Link className="nav-link" to="/ballChance">
+                        <Link className="nav-link" to="/ballchance">
                             번호별 확률
                         </Link>
                         <Link className="nav-link" to="/simulator">
