@@ -214,9 +214,9 @@ const Simulator = ({
                                 } else {
                                     return (
                                         <tr key={idx}>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td>당첨 이후에</td>
+                                            <td>결과를</td>
+                                            <td>보여줍니다.</td>
                                         </tr>
                                     );
                                 }

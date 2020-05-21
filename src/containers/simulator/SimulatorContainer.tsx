@@ -8,6 +8,7 @@ import { SimulatorGame } from "../../logic/Simulator";
 
 const SimulatorContainer = () => {
     const [isFetched, setIsFetched] = useState(false);
+    const [isStarted, setIsStarted] = useState(false);
     const [loading, setLoading] = useState(false);
     const [simulationRound, setSimulationRound] = useState(0);
     const [lotto, setLotto] = useState<Array<ILotto>>([]);
@@ -81,6 +82,9 @@ const SimulatorContainer = () => {
         if (simul) {
             stopSimulator();
         }
+        if (selectedLotto !== null) {
+            resetSimulator();
+        }
         let target = Number(e);
         let filteredLotto = lotto.filter((item) => item.drwNo === target);
         setSelectedLotto(filteredLotto[0]);
@@ -91,6 +95,9 @@ const SimulatorContainer = () => {
         if (simul) {
             stopSimulator();
         }
+        if (simulationRound !== 0) {
+            resetSimulator();
+        }
         let target = Number(e);
         setSimulationRound(target);
         checkSimulationSetting();
@@ -100,15 +107,17 @@ const SimulatorContainer = () => {
         if (curRound >= simulationRound) {
             return;
         }
-        simul && simul.start(setCurRound, setWinList, winList);
+        !isStarted && simul && simul.start(setCurRound, setWinList, winList);
+        setIsStarted(true);
     };
 
     const stopSimulator = () => {
-        simul && simul.stop();
+        isStarted && simul && simul.stop();
+        setIsStarted(false);
     };
 
     const resetSimulator = () => {
-        simul && simul.stop();
+        isStarted && simul && simul.stop();
         setWinList([
             { rank: 1, list: [] },
             { rank: 2, list: [] },
@@ -116,11 +125,8 @@ const SimulatorContainer = () => {
             { rank: 4, list: [] },
             { rank: 5, list: [] },
         ]);
-        setSimulationRound(0);
         setCurRound(0);
-        setSimul(null);
         setProgress(0);
-        setSelectedLotto(null);
     };
 
     if (loading) {
