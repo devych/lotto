@@ -3,12 +3,14 @@ import React from "react";
 const Footer = () => {
     return (
         <>
-            {/* <blockquote className="blockquote text-center">
-                <p className="mb-0">get Lotto Information for fun</p>
+            <blockquote className="blockquote text-center">
+                <p className="mb-0">
+                    원하는 기능이 있으면 아래 메일로 기능 요청을 해주세요
+                </p>
                 <footer className="blockquote-footer">
-                    developed by devych
+                    <a href="mailto">devych.code@gmail.com</a>
                 </footer>
-            </blockquote> */}
+            </blockquote>
             <br />
             <br />
         </>
