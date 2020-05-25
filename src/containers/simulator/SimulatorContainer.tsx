@@ -127,6 +127,7 @@ const SimulatorContainer = () => {
         ]);
         setCurRound(0);
         setProgress(0);
+        setIsStarted(false);
     };
 
     if (loading) {
