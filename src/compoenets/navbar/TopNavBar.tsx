@@ -17,6 +17,7 @@ const TopNavBar: React.FC = () => {
                 bg="dark"
                 variant="dark"
                 expand="md"
+                sticky="top"
                 expanded={toggle}
                 onToggle={handleToggle}
             >
