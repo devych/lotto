@@ -103,5 +103,7 @@ export class SimulatorGame extends Lotto {
         }
     };
 
-    public reset = () => {};
+    public reset = () => {
+        this.curRound = 0;
+    };
 }

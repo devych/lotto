@@ -118,6 +118,7 @@ const SimulatorContainer = () => {
 
     const resetSimulator = () => {
         isStarted && simul && simul.stop();
+        simul && simul.reset();
         setWinList([
             { rank: 1, list: [] },
             { rank: 2, list: [] },
