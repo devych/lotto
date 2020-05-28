@@ -20,7 +20,7 @@ const HelmetComponent = ({ title, description, ogUrl }: IHelmet) => (
         <meta property="og:url" content={ogUrl} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={"http://ttolotto.me/og-img.png"} />
+        <meta property="og:image" content="http://ttolotto.me/ogImg.png" />
         <meta property="og:type" content="website" />
     </Helmet>
 );
