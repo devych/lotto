@@ -6,10 +6,12 @@ const Footer = () => {
             <br />
             <blockquote className="blockquote text-center">
                 <p className="mb-0">
-                    원하는 기능이 있으면 아래 메일로 기능 요청을 해주세요
+                    원하는 기능이 있으시면 아래 메일로 요청을 해주세요
                 </p>
                 <footer className="blockquote-footer">
-                    <a href="mailto">devych.code@gmail.com</a>
+                    <a href="mailto:devych.code@gmail.com">
+                        devych.code@gmail.com
+                    </a>
                 </footer>
             </blockquote>
             <br />

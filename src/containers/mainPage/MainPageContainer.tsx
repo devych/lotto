@@ -35,7 +35,7 @@ const MainPageContainer = () => {
         fetchData();
     }, []);
 
-    const handleLotto = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const handleLotto = (e: string): void => {
         let target = Number(e);
         let filteredLotto = lotto.filter((item) => item.drwNo === target);
         setSelectedLotto(filteredLotto[0]);

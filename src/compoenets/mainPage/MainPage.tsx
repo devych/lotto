@@ -13,7 +13,7 @@ interface IProps {
     createdLottoWin:
         | Array<[number, number, string, string, number[], number[], string]>
         | [];
-    onSelect: (e: any) => void;
+    onSelect: (e: string) => void;
 }
 
 const MainPage = ({

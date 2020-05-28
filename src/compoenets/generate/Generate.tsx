@@ -5,7 +5,7 @@ import HelmetComponent from "../helmet/HelmetComponent";
 
 interface IProps {
     lottoBalls: Array<number>[] | null;
-    handleCount: (evtKey: any) => void;
+    handleCount: (evtKey: string) => void;
     handleLotto: () => void;
     count: number;
 }

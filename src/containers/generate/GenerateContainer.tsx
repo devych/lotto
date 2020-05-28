@@ -12,7 +12,7 @@ const GenerateContainer = () => {
     const [lottoBalls, setLottoBalls] = useState<Array<number>[] | []>([]);
     const [loading, setLoading] = useState(false);
 
-    const handleCount = (evtKey: any) => {
+    const handleCount = (evtKey: string) => {
         let num = Number(evtKey);
         setCount(num);
     };

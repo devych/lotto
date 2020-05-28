@@ -19,7 +19,7 @@ const CreatedLottoWinner = ({ createdLottoWin }: IProps) => (
                     <Row>
                         <Col>
                             {createdLottoWin.length > 0 &&
-                                (createdLottoWin as any)
+                                (createdLottoWin as IProps["createdLottoWin"])
                                     .slice(0, 10)
                                     .map(
                                         (
