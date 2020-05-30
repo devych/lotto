@@ -4,13 +4,17 @@ import styles from "styled-components";
 interface IProps {
     ball?: number;
     id?: number;
+    size?: "lg" | "sm";
+    onClick?: (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
 }
 
-const Ball: React.FC<IProps> = ({ ball, id }) => {
+const Ball: React.FC<IProps> = ({ ball, id, onClick, size }) => {
     return (
         <>
             {id !== 6 ? (
-                <BallStyle>{ball}</BallStyle>
+                <BallStyle onClick={onClick} size={size}>
+                    {ball}
+                </BallStyle>
             ) : (
                 <>
                     <BonusStyle> + </BonusStyle>
@@ -43,12 +47,16 @@ text-align: center;
 vertical-align: middle;
 color: #fff;
 font-weight: 1rm;
-width: 30px;
-height: 30px;
-line-height: 30px;
-font-size: 14px;
+${(props) => {
+    if (props.size) {
+        if (props.size === "sm") {
+            return `width: 25px; height: 25px; line-height: 25px; font-size: 13px; margin: 5px 2px ;`;
+        }
+    } else {
+        return `width: 30px; height: 30px; line-height: 30px; font-size: 14px; margin: 5px 5px ;`;
+    }
+}}
 text-shadow: 0px 0px 3px rgba(73, 57, 0, .8);
-margin: 5px 5px ;
 cursor: pointer; 
 transition:all ease 0.5s 0s;
 `;
