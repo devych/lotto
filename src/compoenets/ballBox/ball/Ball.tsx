@@ -5,7 +5,7 @@ interface IProps {
     ball?: number;
     id?: number;
     size?: "lg" | "sm";
-    onClick?: (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
+    onClick?: (event: React.MouseEvent<HTMLSpanElement>) => void;
 }
 
 const Ball: React.FC<IProps> = ({ ball, id, onClick, size }) => {

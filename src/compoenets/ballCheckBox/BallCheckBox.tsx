@@ -2,7 +2,7 @@ import React from "react";
 import Ball from "../ballBox/ball/Ball";
 
 interface IProps {
-    onClick: (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
+    onClick: (event: React.MouseEvent<HTMLSpanElement>) => void;
 }
 
 const BallCheckBox = ({ onClick }: IProps) => (

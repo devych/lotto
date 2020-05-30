@@ -14,12 +14,8 @@ interface IProps {
     lottoBalls: Array<number>[] | null;
     handleCount: (evtKey: string) => void;
     handleLotto: () => void;
-    handleFixBall: (
-        event: React.MouseEvent<HTMLSpanElement, MouseEvent>
-    ) => void;
-    handleRemoveBall: (
-        event: React.MouseEvent<HTMLSpanElement, MouseEvent>
-    ) => void;
+    handleFixBall: (event: React.MouseEvent<HTMLSpanElement>) => void;
+    handleRemoveBall: (event: React.MouseEvent<HTMLSpanElement>) => void;
     count: number;
 }
 

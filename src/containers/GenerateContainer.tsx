@@ -35,8 +35,9 @@ const GenerateContainer = () => {
         }
     };
 
-    const handleFixBall = (e: MouseEvent) => {
-        let ball = Number(e.target.innerHTML);
+    const handleFixBall = (event: React.MouseEvent<HTMLSpanElement>): void => {
+        let target = event.target as HTMLSpanElement;
+        let ball = Number(target.innerHTML);
         if (removeBall.includes(ball)) {
             alert(
                 `제외 번호에 설정되어있는 번호에요!
@@ -50,9 +51,9 @@ const GenerateContainer = () => {
                 let tempFixBall = [...fixBall];
                 tempFixBall.splice(tempFixBall.indexOf(ball), 1);
                 setFixBall(tempFixBall);
-                e.target.style.border = "";
-                e.target.style.backgroundColor = "";
-                e.target.style.color = "";
+                target.style.border = "";
+                target.style.backgroundColor = "";
+                target.style.color = "";
                 return;
             }
             alert("적어도 하나의 번호는 운에 맡겨보세요!");
@@ -62,18 +63,21 @@ const GenerateContainer = () => {
             let tempFixBall = [...fixBall];
             tempFixBall.splice(tempFixBall.indexOf(ball), 1);
             setFixBall(tempFixBall);
-            e.target.style.border = "";
-            e.target.style.backgroundColor = "";
-            e.target.style.color = "";
+            target.style.border = "";
+            target.style.backgroundColor = "";
+            target.style.color = "";
         } else {
             setFixBall([...fixBall, ball]);
-            e.target.style.backgroundColor = "black";
-            e.target.style.color = "white";
+            target.style.backgroundColor = "black";
+            target.style.color = "white";
         }
     };
 
-    const handleRemoveBall = (e: MouseEvent) => {
-        let ball = Number(e.target.innerHTML);
+    const handleRemoveBall = (
+        event: React.MouseEvent<HTMLSpanElement>
+    ): void => {
+        let target = event.target as HTMLElement;
+        let ball = Number(target.innerHTML);
         if (fixBall.includes(ball)) {
             alert(
                 `고정 번호에 설정되어있는 번호에요!
@@ -86,9 +90,9 @@ const GenerateContainer = () => {
                 let tempRemoveBall = [...removeBall];
                 tempRemoveBall.splice(tempRemoveBall.indexOf(ball), 1);
                 setRemoveBall(tempRemoveBall);
-                e.target.style.border = "";
-                e.target.style.backgroundColor = "";
-                e.target.style.color = "";
+                target.style.border = "";
+                target.style.backgroundColor = "";
+                target.style.color = "";
                 return;
             }
             alert("번호를 이렇게 많이 제거하면 번호가 생성되지 않아요!");
@@ -98,13 +102,13 @@ const GenerateContainer = () => {
             let tempRemoveBall = [...removeBall];
             tempRemoveBall.splice(tempRemoveBall.indexOf(ball), 1);
             setRemoveBall(tempRemoveBall);
-            e.target.style.border = "";
-            e.target.style.backgroundColor = "";
-            e.target.style.color = "";
+            target.style.border = "";
+            target.style.backgroundColor = "";
+            target.style.color = "";
         } else {
             setRemoveBall([...removeBall, ball]);
-            e.target.style.backgroundColor = "white";
-            e.target.style.color = "black";
+            target.style.backgroundColor = "white";
+            target.style.color = "black";
         }
     };
 
