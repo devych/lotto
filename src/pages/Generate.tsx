@@ -39,6 +39,28 @@ const Generate = ({
             />
             <h1>로또 번호 생성</h1>
             <Card className="text-center" border={"secondary"}>
+                <Accordion>
+                    <Accordion.Toggle as={Card.Header} eventKey="0">
+                        <Button variant="outline-primary" block>
+                            고정 번호 설정
+                        </Button>
+                    </Accordion.Toggle>
+                    <Accordion.Collapse eventKey="0">
+                        <Card.Body>
+                            <BallCheckBox onClick={handleFixBall} />
+                        </Card.Body>
+                    </Accordion.Collapse>
+                    <Accordion.Toggle as={Card.Header} eventKey="1">
+                        <Button variant="outline-danger" block>
+                            제외 번호 설정
+                        </Button>
+                    </Accordion.Toggle>
+                    <Accordion.Collapse eventKey="1">
+                        <Card.Body>
+                            <BallCheckBox onClick={handleRemoveBall} />
+                        </Card.Body>
+                    </Accordion.Collapse>
+                </Accordion>
                 <Card.Header>
                     <DropdownButton
                         key={"secondary"}
@@ -63,31 +85,6 @@ const Generate = ({
                         번호 생성
                     </Button>
                 </Card.Header>
-                <Accordion>
-                    <Card>
-                        <Accordion.Toggle as={Card.Body} eventKey="0">
-                            <Button variant="outline-primary" block>
-                                고정 번호 설정
-                            </Button>
-                        </Accordion.Toggle>
-                        <Accordion.Collapse eventKey="0">
-                            <Card.Body>
-                                <BallCheckBox onClick={handleFixBall} />
-                            </Card.Body>
-                        </Accordion.Collapse>
-                        <Accordion.Toggle as={Card.Body} eventKey="1">
-                            <Button variant="outline-danger" block>
-                                제외 번호 설정
-                            </Button>
-                        </Accordion.Toggle>
-                        <Accordion.Collapse eventKey="1">
-                            <Card.Body>
-                                <BallCheckBox onClick={handleRemoveBall} />
-                            </Card.Body>
-                        </Accordion.Collapse>
-                    </Card>
-                </Accordion>
-
                 <Card.Body>
                     {lottoBalls && lottoBalls.length === 0 ? (
                         <Card.Title>
@@ -95,25 +92,27 @@ const Generate = ({
                             <br /> 번호 생성 버튼을 클릭해주세요
                         </Card.Title>
                     ) : (
-                        ``
+                        <Card.Title>
+                            {lottoBalls!.length}개 번호를 생성했습니다.
+                            <br />
+                            <br />
+                            1등을 기원합니다!
+                        </Card.Title>
                     )}
                     {lottoBalls && lottoBalls.length === 0
                         ? ``
                         : lottoBalls!.map((item, idx) => {
                               return (
                                   <Card
-                                      bg={"light"}
                                       key={idx}
-                                      text={"dark"}
+                                      border={"dark"}
                                       style={{
                                           width: "18rem",
                                           display: "inline-block",
                                           margin: "5px 5px",
                                       }}
                                   >
-                                      <Card.Header>
-                                          {idx + 1}번 번호
-                                      </Card.Header>
+                                      <Card.Header>No.{idx + 1}</Card.Header>
                                       <Card.Body>
                                           <BallBox balls={item} />
                                       </Card.Body>
