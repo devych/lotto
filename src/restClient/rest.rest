@@ -1,0 +1,18 @@
+# 로또번호생성
+POST http://13.124.128.25:5000/lotto/generate/5  HTTP/1.1
+content-type: application/json
+
+{
+    "fix" : [14,27],
+    "remove" : [9,22,32,23,41,30]
+}
+
+# 유저생성로또번호 전부 가져오기
+GET http://0.0.0.0:5000/lotto/generatedLottos
+
+GET http://0.0.0.0:5000/lotto/fullyAutoGenerateLottos/5
+
+
+GET http://13.124.128.25:5000/lotto/fullyAutoGenerateLottos/5
+
+GET http://13.124.128.25:5000/lotto/check
