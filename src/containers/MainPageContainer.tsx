@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import MainPage from "../pages/MainPage";
 import Axios from "axios";
 import Loading from "../compoenets/utiliies/Loading";
@@ -12,7 +12,7 @@ const MainPageContainer = () => {
     let [selectedLotto, setSelectedLotto] = useState<ILotto | null>(null);
     let [loading, setLoading] = useState(false);
 
-    const fetchData = async () => {
+    const fetchData = useCallback(async () => {
         try {
             setLoading(true);
             const responseLotto = await Axios.get(
@@ -29,17 +29,17 @@ const MainPageContainer = () => {
             console.error(err);
         }
         setLoading(false);
-    };
+    },[])
 
     useEffect(() => {
         fetchData();
-    }, []);
+    }, [fetchData]);
 
-    const handleLotto = (e: string): void => {
+    const handleLotto = useCallback((e: string): void => {
         let target = Number(e);
         let filteredLotto = lotto.filter((item) => item.drwNo === target);
         setSelectedLotto(filteredLotto[0]);
-    };
+    },[lotto])
 
     if (loading) {
         return <Loading />;

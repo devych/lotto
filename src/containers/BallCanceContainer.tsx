@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Axios from "axios";
 import BallChance from "../pages/BallChance";
 import Loading from "../compoenets/utiliies/Loading";
@@ -30,14 +30,14 @@ const BallCanceContainer = () => {
         fetchData();
     }, []);
 
-    const handleBnus = () => {
+    const handleBnus = useCallback(() => {
         if (isBnus) {
             fetchData(0);
         } else {
             fetchData(1);
         }
         setIsBnus(!isBnus);
-    };
+    }, [isBnus]);
 
     if (loading) {
         return <Loading />;
